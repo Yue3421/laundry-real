@@ -4,16 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Transaksi;
+use Carbon\Carbon;
 
 class LaporanController extends Controller
 {
     public function index(Request $request)
-{
-    // Check role: all boleh, tapi mungkin filter by outlet
-    $transaksis = Transaksi::with(['detailTransaksis.paket', 'member'])
-        ->whereBetween('tgl', [$request->start_date ?? now()->subMonth(), $request->end_date ?? now()])
-        ->get();
-    // Bisa generate PDF pakai Dompdf atau similar, tapi contoh return view
-    return view('laporans.index', compact('transaksis'));
-}
+    {
+        $transaksis = Transaksi::with(['detailTransaksis.paket', 'member'])
+            ->when($request->start_date, function ($query, $start_date) {
+                $query->where('tgl', '>=', Carbon::parse($start_date)->startOfDay());
+            })
+            ->when($request->end_date, function ($query, $end_date) {
+                $query->where('tgl', '<=', Carbon::parse($end_date)->endOfDay());
+            })
+            ->get();
+
+        return view('laporans.index', compact('transaksis'));
+    }
 }
