@@ -142,13 +142,11 @@
         container.appendChild(newRow);
         detailCount++;
 
-        // Tambah event remove untuk row baru
         newRow.querySelector('.remove-row').addEventListener('click', function() {
             newRow.remove();
         });
     });
 
-    // Remove untuk row existing kalau ada lebih dari satu
     document.addEventListener('click', function(e) {
         if (e.target.classList.contains('remove-row')) {
             e.target.closest('.detail-row').remove();

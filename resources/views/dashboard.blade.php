@@ -15,7 +15,6 @@
             </div>
         </div>
     </div>
-    <!-- Tambah card lain misal jumlah pelanggan, dll. -->
     <div class="col-md-4">
         <div class="card text-center">
             <div class="card-body">

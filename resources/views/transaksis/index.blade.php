@@ -17,7 +17,7 @@
             <th>Batas Waktu</th>
             <th>Status</th>
             <th>Dibayar</th>
-            <th>Total (Rp)</th> <!-- Hitung dari detail -->
+            <th>Total (Rp)</th>
             <th>Aksi</th>
         </tr>
     </thead>
