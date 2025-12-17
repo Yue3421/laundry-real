@@ -18,7 +18,7 @@
         <label for="tlp" class="form-label">Telepon</label>
         <input type="text" class="form-control" id="tlp" name="tlp" value="{{ $outlet->tlp }}" required>
     </div>
-    <button type="submit" class="btn btn-primary">Update</button>
+    <button type="submit" class="btn btn-warning">Update</button>
     <a href="{{ route('outlets.index') }}" class="btn btn-secondary">Batal</a>
 </form>
 @endsection

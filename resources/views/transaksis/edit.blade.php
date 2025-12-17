@@ -108,9 +108,9 @@
             </div>
         @endforeach
     </div>
-    <button type="button" class="btn btn-secondary mb-3" id="add-detail">Tambah Paket Lain</button>
+    <button type="button" class="btn btn-primary mb-3 mt-3" id="add-detail">Tambah Paket Lain</button>
 
-    <button type="submit" class="btn btn-primary">Update Transaksi</button>
+    <button type="submit" class="btn btn-warning">Update Transaksi</button>
     <a href="{{ route('transaksis.index') }}" class="btn btn-secondary">Batal</a>
 </form>
 

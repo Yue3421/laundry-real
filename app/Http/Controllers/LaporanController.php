@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Transaksi;
 use Carbon\Carbon;
+use PDF; 
 
 class LaporanController extends Controller
 {
@@ -20,5 +21,21 @@ class LaporanController extends Controller
             ->get();
 
         return view('laporans.index', compact('transaksis'));
+    }
+
+    // Method baru buat generate PDF
+    public function pdf(Request $request)
+    {
+        $transaksis = Transaksi::with(['detailTransaksis.paket', 'member'])
+            ->when($request->start_date, function ($query, $start_date) {
+                $query->where('tgl', '>=', Carbon::parse($start_date)->startOfDay());
+            })
+            ->when($request->end_date, function ($query, $end_date) {
+                $query->where('tgl', '<=', Carbon::parse($end_date)->endOfDay());
+            })
+            ->get();
+
+        $pdf = PDF::loadView('laporans.pdf', compact('transaksis'));
+        return $pdf->download('laporan-transaksi.pdf'); 
     }
 }

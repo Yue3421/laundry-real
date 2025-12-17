@@ -32,7 +32,7 @@
         <label for="harga" class="form-label">Harga</label>
         <input type="number" class="form-control" id="harga" name="harga" value="{{ $paket->harga }}" required min="0">
     </div>
-    <button type="submit" class="btn btn-primary">Update</button>
+    <button type="submit" class="btn btn-warning">Update</button>
     <a href="{{ route('pakets.index') }}" class="btn btn-secondary">Batal</a>
 </form>
 @endsection

@@ -3,7 +3,7 @@
 @section('title', 'Entri Transaksi Baru')
 
 @section('content')
-<h1>Entri Transaksi Baru</h1>
+<h1>Tambahkan Transaksi Baru</h1>
 <form action="{{ route('transaksis.store') }}" method="POST">
     @csrf
     <div class="row">
@@ -85,7 +85,6 @@
     <hr>
     <h4>Detail Paket Cucian</h4>
     <div id="details-container">
-        <!-- Row pertama default -->
         <div class="detail-row row mb-3">
             <div class="col-md-4">
                 <select class="form-select" name="details[0][id_paket]" required>
@@ -106,9 +105,9 @@
             </div>
         </div>
     </div>
-    <button type="button" class="btn btn-secondary mb-3" id="add-detail">Tambah Paket Lain</button>
+    <button type="button" class="btn btn-primary mb-3 mt-3" id="add-detail">Tambah Paket Lain</button>
 
-    <button type="submit" class="btn btn-primary">Simpan Transaksi</button>
+    <button type="submit" class="btn btn-warning">Update Transaksi</button>
     <a href="{{ route('transaksis.index') }}" class="btn btn-secondary">Batal</a>
 </form>
 

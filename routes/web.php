@@ -22,7 +22,7 @@ use App\Http\Controllers\LaporanController;
 
 // Route default (bisa diganti ke login atau dashboard)
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 // Route untuk login (asumsi punya view auth/login.blade.php)
@@ -33,6 +33,8 @@ Route::post('/login', [AuthController::class, 'login']);
 
 // Route untuk logout
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::get('/laporans/pdf', [LaporanController::class, 'pdf'])->name('laporans.pdf');
 
 // Group route yang butuh auth (login dulu)
 Route::middleware('auth')->group(function () {

@@ -12,9 +12,10 @@
         <div class="col-md-4">
             <input type="date" class="form-control" name="end_date" value="{{ request('end_date') }}" placeholder="Sampai Tanggal">
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 mr-5">
             <button type="submit" class="btn btn-primary">Filter</button>
-            <a href="{{ route('laporans.index') }}" class="btn btn-secondary">Reset Filter</a>
+            <a href="{{ route('laporans.index') }}" class="btn btn-danger">Reset Filter</a>
+            <a href="{{ route('laporans.pdf', request()->query()) }}" class="btn btn-success" target="_blank">Download PDF</a>
         </div>
     </div>
 </form>
@@ -24,7 +25,7 @@
             <th>Kode Invoice</th>
             <th>Pelanggan</th>
             <th>Tanggal</th>
-            <th>Total (Rp)</th> <!-- Hitung lengkap: subtotal detail + tambahan + pajak - diskon -->
+            <th>Total (Rp)</th> 
             <th>Status</th>
         </tr>
     </thead>

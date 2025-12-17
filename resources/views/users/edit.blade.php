@@ -34,7 +34,7 @@
             <option value="owner" {{ $user->role == 'owner' ? 'selected' : '' }}>Owner</option>
         </select>
     </div>
-    <button type="submit" class="btn btn-primary">Update</button>
+    <button type="submit" class="btn btn-warning">Update</button>
     <a href="{{ route('users.index') }}" class="btn btn-secondary">Batal</a>
 </form>
 @endsection
