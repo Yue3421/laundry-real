@@ -38,7 +38,6 @@ Route::get('/laporans/pdf', [LaporanController::class, 'pdf'])->name('laporans.p
 
 // Group route yang butuh auth (login dulu)
 Route::middleware('auth')->group(function () {
-    // Dashboard (asumsi punya view dashboard.blade.php, redirect setelah login)
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
@@ -60,5 +59,4 @@ Route::middleware('auth')->group(function () {
 
     // Generate Laporan - semua role
     Route::get('/laporans', [LaporanController::class, 'index'])->name('laporans.index');
-    // Kalau butuh post atau filter, bisa tambah Route::post('/laporans', [LaporanController::class, 'generate']);
 });
